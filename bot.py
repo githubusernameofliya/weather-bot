@@ -1,34 +1,3 @@
-# from aiogram import Bot, Dispatcher, executor
-# from aiogram.dispatcher.filters import Text
-
-# bot = Bot(token="7191580316:AAGdFwvL-oVzFwsSbtQzlblJ0C7kbILCgAI")
-
-# dp = Dispatcher(bot=bot)
-
-# @dp.message_handler(commands='start')
-# async def say_hello(message):
-
-#     chat_id = message.from_user.id
-#     text = "Hello, how are you ?"
-
-#     await bot.send_message(chat_id=chat_id, text=text)
-
-
-# @dp.message_handler(Text(equals="What is your name ?"))
-# async def introduce(message):
-#     chat_id = message.from_user.id
-#     text = "I'm the first telegram bot developed by Liya"
-#     await bot.send_message(chat_id=chat_id, text=text)
-
-
-# @dp.message_handler(Text(equals="Where are you from ?"))
-# async def introduce(message):
-#     chat_id = message.from_user.id
-#     text = "I'm from Southampton,England"
-#     await bot.send_message(chat_id=chat_id, text=text)
-
-
-# executor.start_polling(dispatcher=dp)
 from datetime import datetime
 from aiogram import Bot, Dispatcher, executor
 from aiogram.dispatcher.filters import Text
