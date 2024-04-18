@@ -5,6 +5,8 @@ from aiogram.types import Message
 from pymysql import connect
 from requests import get
 
+from keyboards import generate_cities_list
+
 API_KEY = "98943b3a7c43ba4865aaa7f64ff282e1"
 URL = "https://api.openweathermap.org/data/2.5/weather"
 bot = Bot(token="7191580316:AAGdFwvL-oVzFwsSbtQzlblJ0C7kbILCgAI")
@@ -30,12 +32,12 @@ async def say_hello(message: Message):
     if not user:
         cursor.execute("""INSERT INTO users(full_name, user_id) VALUES (%s, %s)""", (full_name, telegram_id))
         connection.commit()
-        await bot.send_message(chat_id=telegram_id, text="We are glad to seee you there !")
+        await bot.send_message(chat_id=telegram_id, text="We are glad to seee you there !",  reply_markup=generate_cities_list())
 
     else:
         await bot.send_message(chat_id=telegram_id, text="Welcome back !")
     
-    await bot.send_message(chat_id=telegram_id, text="Type city name to find out weather informtion here.")
+    await bot.send_message(chat_id=telegram_id, text="Type city name to find out weather informtion here.",  reply_markup=generate_cities_list())
 
 
 @dp.message_handler()
